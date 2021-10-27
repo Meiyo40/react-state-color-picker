@@ -1,0 +1,16 @@
+.colorPicker {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.colorPicker-title {
+    font-family: Helvetica, sans-serif;
+}
+
+.colorPicker-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
