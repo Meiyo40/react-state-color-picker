@@ -38,9 +38,9 @@ class ColorCase extends React.Component {
         do
         {
             let rdn = Math.floor(Math.random() * this.props.colorList.length);
-            color = this.props.colorList[rdn];
-        } while(color === undefined);
-        return "#" + color;
+            color = "#" + this.props.colorList[rdn];
+        } while(color === undefined && color !== this.state.style.backgroundColor);        
+        return color;
     }
 
     render() {
