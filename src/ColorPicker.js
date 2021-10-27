@@ -42,8 +42,9 @@ class ColorPicker extends React.Component {
     init() {
         if(!this.isInit){
             //create nb of color case from screen size
-            let screenWidth = document.documentElement.clientWidth;
-            let screenHeight = document.documentElement.clientHeight;
+            let margin = this.props.colorCaseSize;
+            let screenWidth = document.documentElement.clientWidth - margin;
+            let screenHeight = document.documentElement.clientHeight - margin;
             let nbCol = Math.floor(screenWidth / this.props.colorCaseSize);
             let nbRows = Math.floor(screenHeight / this.props.colorCaseSize);
 
@@ -62,8 +63,8 @@ class ColorPicker extends React.Component {
     createComponents() {
         let components = [];
 
-        for (let i = 0; i < this.state.cases.col.length; i++) {
-            for (let j = 0; j < this.state.cases.rows.length; j++) {
+        for (let i = 0; i < this.state.cases.rows.length; i++) {
+            for (let j = 0; j < this.state.cases.col.length; j++) {
                 let color = this.getRandomColor();
                 components.push(<ColorCase size={this.props.colorCaseSize} color={color} colorList={this.props.colors} />);
             }
@@ -88,7 +89,6 @@ class ColorPicker extends React.Component {
 
         return (
             <div className="colorPicker">
-                <h1 className="colorPicker-title">My Color Picker</h1>
                 <div className="colorPicker-container">
                     { 
                         this.createComponents()
